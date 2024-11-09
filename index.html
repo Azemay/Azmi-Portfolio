@@ -38,6 +38,7 @@ html {
             background-size: cover;
             background-attachment: fixed;
       background-size: cover;
+      background-color: #2b364f;
       opacity: 1;
       transition: opacity 1s ease-in-out;
     }
@@ -61,14 +62,14 @@ html {
     }
 
     h1 {
-      font-size: 72px;
+      font-size: 108px;
       color: #ffffffa4;
       margin: 0;
     }
 
     h2 {
       color: #ffffffa4;
-      font-size: 48px;
+      font-size: 32px;
       margin: 10px 0 0;
     }
 
@@ -90,22 +91,21 @@ html {
   <script>
     function updateDateTime() {
       const optionsDate = { weekday: 'long', month: 'long', day: 'numeric' };
-      const optionsTime = { hour: 'numeric', minute: 'numeric' };
+      const optionsTime = { hour: 'numeric', minute: 'numeric', hourCycle: 'h23' };
       
       const now = new Date();
       document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', optionsDate);
       document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', optionsTime);
     }
 
-    // Update date and time
-    updateDateTime();
+    setInterval(updateDateTime, 500);
 
     // Redirect with fade-out effect
     document.addEventListener('keydown', function() {
       document.body.classList.add('fade-out');
       setTimeout(function() {
         window.location.href = 'Widgets.html'; // target URL
-      }, 500); 
+      }, 1000); 
     });
   </script>
 </body>
