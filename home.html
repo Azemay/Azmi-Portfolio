@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="9a7bd235c63bbe86-sticker.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Screen</title>
+  <style>
+
+html {
+  overflow-y: hidden;
+}
+
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff');
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff');
+      font-weight: 600;
+    }
+
+    body {
+      height: 100%;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      text-align: center;
+      background-image: url("10-14-Night.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+      background-size: cover;
+      background-color: #2b364f;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .container {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 6.25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-size: 108px;
+      color: #ffffffa4;
+      margin: 0;
+    }
+
+    h2 {
+      color: #ffffffa4;
+      font-size: 32px;
+      margin: 20px 0 0;
+    }
+
+    p {
+      color: #ffffffa4;
+      font-size: 18px;
+      margin: 10px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="currentDate"></h2>
+    <h1 id="currentTime"></h1>
+  </div>
+
+  <div class="bottom"><p>Press any key to enter</p></div>
+
+  <script>
+    function updateDateTime() {
+      const optionsDate = { weekday: 'long', month: 'long', day: 'numeric' };
+      const optionsTime = { hour: 'numeric', minute: 'numeric', hourCycle: 'h23' };
+      
+      const now = new Date();
+      document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', optionsDate);
+      document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', optionsTime);
+    }
+
+    setInterval(updateDateTime, 500);
+
+    // Redirect with fade-out effect
+    document.addEventListener('keydown', function() {
+      document.body.classList.add('fade-out');
+      setTimeout(function() {
+        window.location.href = 'Widgets.html'; // target URL
+      }, 1000); 
+    });
+  </script>
+</body>
+</html>

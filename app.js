@@ -29,7 +29,7 @@ function settings() {
             event.preventDefault();
             document.body.classList.add('fade-out');
             setTimeout(function () {
-                window.location.href = 'loader.html';
+                window.location.href = 'index.html';
             }, 500);
         });
 

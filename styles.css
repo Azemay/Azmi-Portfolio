@@ -63,11 +63,6 @@ body {
 }
 
 
-
-
-
-
-
 .dock {
     z-index: 100;
     width: auto;
@@ -332,12 +327,6 @@ a {
         grid-row: auto !important;
     }
 }
-
-
-
-
-
-
 
 @keyframes popup {
     0% {
